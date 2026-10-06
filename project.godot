@@ -14,6 +14,11 @@ config/name="really_small_gd_project"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*uid://bxghw5gbjly7i"
+Refs="*uid://ijdt71q8i238"
+
 [display]
 
 window/stretch/mode="canvas_items"
