@@ -7,17 +7,20 @@ extends Control
 
 var _tween: Tween
 
-@onready var first_duelist: Label = %FirstDuelist
-@onready var second_duelist: Label = %SecondDuelist
+@onready var _first_duelist: Label = %FirstDuelist
+@onready var _second_duelist: Label = %SecondDuelist
 
 
 func _ready() -> void:
 	modulate = Color.TRANSPARENT
 
 
-func show_names(first_name: String, second_name: String) -> void:
-	first_duelist.text = first_name
-	second_duelist.text = second_name
+func show_players(first_player: Player, second_player: Player) -> void:
+	_first_duelist.text = first_player.nickname
+	_first_duelist.modulate = first_player.color
+
+	_second_duelist.text = second_player.nickname
+	_second_duelist.modulate = second_player.color
 
 	_reset_tween()
 	_tween.tween_property(self, "modulate", Color.WHITE, transition_time)
