@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ddnwpthnfnits"]
+
+[ext_resource type="Script" uid="uid://ckmd17y7bfdua" path="res://ui_scenes/listener_settings_menu.gd" id="1_7jh5h"]
+
+[node name="ListenerSettingsMenu" type="VBoxContainer" unique_id=2084615866]
+offset_right = 240.0
+offset_bottom = 66.0
+script = ExtResource("1_7jh5h")
+
+[node name="ChannelNameEdit" type="LineEdit" parent="." unique_id=1470996776]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Имя канала на твиче"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=370036802]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=2037793433]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "START"
+
+[node name="StopButton" type="Button" parent="HBoxContainer" unique_id=1720230996]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "STOP"
+
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
