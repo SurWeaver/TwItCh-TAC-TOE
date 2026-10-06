@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dmww5vko4lt56"]
+
+[ext_resource type="Theme" uid="uid://d2l6uoq1t4nrx" path="res://assets/ui_themes/default_theme.tres" id="1_5pcf1"]
+[ext_resource type="Script" uid="uid://bfvuf811fm5id" path="res://ui_scenes/duelist_names.gd" id="1_kigkx"]
+
+[node name="DuelistNames" type="Control" unique_id=747100883]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 136.0
+offset_top = 101.0
+offset_right = 176.0
+offset_bottom = 141.0
+theme = ExtResource("1_5pcf1")
+script = ExtResource("1_kigkx")
+
+[node name="FirstDuelist" type="Label" parent="." unique_id=1355132499]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -192.0
+offset_top = -74.0
+offset_right = 193.0
+offset_bottom = -51.0
+text = "1234567890123456789012345"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondDuelist" type="Label" parent="." unique_id=1081937818]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -192.0
+offset_top = 49.0
+offset_right = 193.0
+offset_bottom = 72.0
+text = "1234567890123456789012345"
+horizontal_alignment = 1
+vertical_alignment = 1
