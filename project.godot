@@ -26,6 +26,11 @@ Refs="*uid://ijdt71q8i238"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localization.en.translation", "res://localization/localization.ru.translation")
+locale/locale_filter_mode=0
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

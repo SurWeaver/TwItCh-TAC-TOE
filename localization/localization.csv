@@ -1,0 +1,7 @@
+keys,ru,en
+CONNECTED,Подключено,Connected
+DISCONNECTED,Отключено,Disconnected
+TWITCH_CHANNEL_NAME,Имя канала на твиче,Twitch channel name
+START,Запустить,Start
+STOP,Остановить,Stop
+TWITCH_CHAT_LISTENER,Прослушиватель чата твича,Twitch chat listener
