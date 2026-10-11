@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cgaewsy06jxfp"]
+
+[ext_resource type="Script" uid="uid://dwm0umubawkw1" path="res://components/command_manager.gd" id="1_pcl6o"]
+[ext_resource type="PackedScene" uid="uid://cjiwb0uc50o52" path="res://game_scenes/duel_scene.tscn" id="2_kr2mg"]
+[ext_resource type="Script" uid="uid://i2oxcd6u1e2m" path="res://components/duel_call_manager.gd" id="2_r83ge"]
+[ext_resource type="Script" uid="uid://8ng2m3qenjql" path="res://components/duel_queue_manager.gd" id="3_ii04s"]
+[ext_resource type="Script" uid="uid://dkkf50t0vwkhn" path="res://components/duel_scene_provider.gd" id="3_r83ge"]
+[ext_resource type="Script" uid="uid://bf7sl3ngqtdrd" path="res://components/command_transmitter.gd" id="4_c76c8"]
+
+[node name="DuelHall" type="Node2D" unique_id=963117746]
+
+[node name="CommandManager" type="Node" parent="." unique_id=230197748 node_paths=PackedStringArray("duel_scenes_parent", "duel_call_manager")]
+script = ExtResource("1_pcl6o")
+duel_scenes_parent = NodePath("../DuelSceneProvider")
+duel_call_manager = NodePath("../DuelCallManager")
+metadata/_custom_type_script = "uid://dwm0umubawkw1"
+
+[node name="CommandTransmitter" type="Node" parent="." unique_id=454327272 node_paths=PackedStringArray("_queue_manager")]
+script = ExtResource("4_c76c8")
+_queue_manager = NodePath("../DuelQueueManager")
+metadata/_custom_type_script = "uid://bf7sl3ngqtdrd"
+
+[node name="DuelCallManager" type="Node" parent="." unique_id=2029186284]
+script = ExtResource("2_r83ge")
+metadata/_custom_type_script = "uid://i2oxcd6u1e2m"
+
+[node name="DuelQueueManager" type="Node" parent="." unique_id=719390111 node_paths=PackedStringArray("_duel_call_manager", "_duel_scene_provider")]
+script = ExtResource("3_ii04s")
+_duel_call_manager = NodePath("../DuelCallManager")
+_duel_scene_provider = NodePath("../DuelSceneProvider")
+metadata/_custom_type_script = "uid://8ng2m3qenjql"
+
+[node name="DuelSceneProvider" type="Node2D" parent="." unique_id=1478369029]
+script = ExtResource("3_r83ge")
+
+[node name="DuelScene" parent="DuelSceneProvider" unique_id=829608197 instance=ExtResource("2_kr2mg")]
+position = Vector2(115, 90)
+
+[node name="DuelScene2" parent="DuelSceneProvider" unique_id=1010660135 instance=ExtResource("2_kr2mg")]
+position = Vector2(345, 90)
+
+[node name="DuelScene3" parent="DuelSceneProvider" unique_id=1849011316 instance=ExtResource("2_kr2mg")]
+position = Vector2(575, 90)
+
+[node name="DuelScene4" parent="DuelSceneProvider" unique_id=794946228 instance=ExtResource("2_kr2mg")]
+position = Vector2(805, 90)
+
+[node name="DuelScene5" parent="DuelSceneProvider" unique_id=8173078 instance=ExtResource("2_kr2mg")]
+position = Vector2(115, 240)
+
+[node name="DuelScene6" parent="DuelSceneProvider" unique_id=323782516 instance=ExtResource("2_kr2mg")]
+position = Vector2(345, 240)
+
+[node name="DuelScene7" parent="DuelSceneProvider" unique_id=1943931980 instance=ExtResource("2_kr2mg")]
+position = Vector2(575, 240)
+
+[node name="DuelScene8" parent="DuelSceneProvider" unique_id=396436869 instance=ExtResource("2_kr2mg")]
+position = Vector2(805, 240)
+
+[node name="DuelScene9" parent="DuelSceneProvider" unique_id=612816592 instance=ExtResource("2_kr2mg")]
+position = Vector2(115, 390)
+
+[node name="DuelScene10" parent="DuelSceneProvider" unique_id=613846648 instance=ExtResource("2_kr2mg")]
+position = Vector2(345, 390)
+
+[node name="DuelScene11" parent="DuelSceneProvider" unique_id=945861195 instance=ExtResource("2_kr2mg")]
+position = Vector2(575, 390)
+
+[node name="DuelScene12" parent="DuelSceneProvider" unique_id=171842633 instance=ExtResource("2_kr2mg")]
+position = Vector2(805, 390)
+
+[node name="DuelScene13" parent="DuelSceneProvider" unique_id=1424636357 instance=ExtResource("2_kr2mg")]
+position = Vector2(115, 540)
+
+[node name="DuelScene14" parent="DuelSceneProvider" unique_id=2115965814 instance=ExtResource("2_kr2mg")]
+position = Vector2(345, 540)
+
+[node name="DuelScene15" parent="DuelSceneProvider" unique_id=365091902 instance=ExtResource("2_kr2mg")]
+position = Vector2(575, 540)
+
+[node name="DuelScene16" parent="DuelSceneProvider" unique_id=1559302817 instance=ExtResource("2_kr2mg")]
+position = Vector2(805, 540)
