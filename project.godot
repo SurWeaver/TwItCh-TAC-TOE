@@ -20,7 +20,6 @@ Settings="*uid://bfptqgb0weum2"
 PlayerManager="*uid://c7f76b23b1eey"
 TwitchListener="*uid://c1btu5ssn6l3o"
 CommandParser="*uid://c8ceb4sc41or"
-Constants="*uid://bxghw5gbjly7i"
 Refs="*uid://ijdt71q8i238"
 
 [display]
