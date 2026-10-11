@@ -7,10 +7,14 @@ offset_right = 240.0
 offset_bottom = 66.0
 script = ExtResource("1_7jh5h")
 
+[node name="Label" type="Label" parent="." unique_id=1994590101]
+layout_mode = 2
+text = "TWITCH_CHAT_LISTENER"
+
 [node name="ChannelNameEdit" type="LineEdit" parent="." unique_id=1470996776]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "Имя канала на твиче"
+placeholder_text = "TWITCH_CHANNEL_NAME"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=370036802]
 layout_mode = 2
@@ -24,6 +28,11 @@ text = "START"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "STOP"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=467446339]
+layout_mode = 2
+text = "CONNECTED"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
