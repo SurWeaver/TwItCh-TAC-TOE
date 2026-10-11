@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ds2mlvdje4f8i"]
+
+[ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://ui_scenes/grid_input_helper.gd" id="1_yl7qd"]
+
+[node name="GridInputHelper" type="GridContainer" unique_id=1092303927]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_right = 94.0
+offset_bottom = 94.0
+pivot_offset = Vector2(47, 47)
+columns = 3
+script = ExtResource("1_yl7qd")
+_helper_visible_color = Color(1, 1, 1, 0.5019608)
+
+[node name="Label1" type="Label" parent="." unique_id=1371507315]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=967488955]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=479886911]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=44865984]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="." unique_id=1939611841]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="." unique_id=306285285]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="." unique_id=282445663]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="." unique_id=922441378]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="." unique_id=1864310105]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "!9"
+horizontal_alignment = 1
+vertical_alignment = 1
