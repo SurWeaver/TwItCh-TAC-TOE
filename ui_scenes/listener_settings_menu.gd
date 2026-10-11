@@ -12,7 +12,6 @@ func _ready() -> void:
 	else:
 		status_label.text = Locale.DISCONNECTED
 		channel_name_edit.text = Settings.streamer_nickname
-		_on_start_button_pressed()
 
 	TwitchListener.connection_established.connect(_on_connection_established)
 	TwitchListener.connection_lost.connect(_on_connection_lost)

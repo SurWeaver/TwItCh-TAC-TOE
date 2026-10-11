@@ -26,10 +26,18 @@ var _current_state: ConnectionState = ConnectionState.DISCONNECTED
 
 
 func _ready() -> void:
+	## Отключаем _process, т.к. он используется только в конкретных состояниях
 	set_process(false)
+
+	if Settings.streamer_nickname != "":
+		set_channel(Settings.streamer_nickname)
+		start()
 
 
 func set_channel(channel_nickname: String) -> void:
+	if is_listening():
+		stop()
+
 	_channel = "#" + channel_nickname.to_lower()
 
 func get_channel() -> String:
@@ -42,6 +50,9 @@ func set_reconnect_time(reconnect_time: float) -> void:
 	_reconnect_time = reconnect_time
 
 func start() -> void:
+	if is_listening():
+		stop()
+
 	if _channel == "#":
 		print("Неверное имя канала!")
 		return
