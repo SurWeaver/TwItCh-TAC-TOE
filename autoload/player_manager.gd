@@ -1,4 +1,3 @@
-class_name PlayerManager
 extends Node
 
 
@@ -11,8 +10,12 @@ func _ready() -> void:
 	else:
 		_player_collection = PlayerCollection.new()
 
-
 func get_player(nickname: String) -> Player:
+	return _player_collection.get_player(nickname)
+
+
+## Небезопасная функция, если игроки начнут спамить несуществующими никами.
+func get_or_create_player(nickname: String) -> Player:
 	var player = _player_collection.get_player(nickname)
 	if player:
 		return player

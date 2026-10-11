@@ -16,6 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+PlayerManager="*uid://c7f76b23b1eey"
 TwitchListener="*uid://c1btu5ssn6l3o"
 CommandParser="*uid://c8ceb4sc41or"
 Constants="*uid://bxghw5gbjly7i"
