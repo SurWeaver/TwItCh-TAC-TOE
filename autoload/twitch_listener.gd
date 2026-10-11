@@ -32,6 +32,12 @@ func _ready() -> void:
 func set_channel(channel_nickname: String) -> void:
 	_channel = "#" + channel_nickname.to_lower()
 
+func get_channel() -> String:
+	return _channel.trim_prefix("#")
+
+func is_listening() -> bool:
+	return _current_state == ConnectionState.READY
+
 func set_reconnect_time(reconnect_time: float) -> void:
 	_reconnect_time = reconnect_time
 
@@ -44,6 +50,7 @@ func start() -> void:
 func stop() -> void:
 	_change_state(ConnectionState.DISCONNECTED)
 	_tcp_client.disconnect_from_host()
+	connection_lost.emit()
 	set_process(false)
 
 
