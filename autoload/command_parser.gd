@@ -4,14 +4,14 @@ extends Node
 ## message: !duel @nickname
 signal duel_call(author: String, opponent: String)
 
-## message: !1
-signal symbol_placed(author: String, coordinate: String)
-
 ## message: !color red | !color #23FFBB
 signal changed_color(author: String, color: Color)
 
+## message: !1
+signal symbol_placed(author: String, coordinate_index: int)
 
-const NO_OPPONENT = ""
+
+
 const DEFAULT_UNACCEPTABLE_COLOR = Color(0, 0, 0, 0)
 
 
@@ -34,7 +34,7 @@ func _parse_message(author: String, message: String) -> void:
 
 func _parse_duel(author: String, message: String) -> void:
 	if "@" not in message:
-		duel_call.emit(author, NO_OPPONENT)
+		duel_call.emit(author, Constants.NO_OPPONENT)
 		return
 
 	var at_symbol = message.find("@")
@@ -50,4 +50,6 @@ func _parse_color(author: String, message: String) -> void:
 
 func _parse_coordinate(author: String, message: String) -> void:
 	var coordinate = message.trim_prefix("!").get_slice(" ", 0)
-	symbol_placed.emit(author, coordinate)
+	var coordinate_index = Converter.to_coordinate_index(coordinate)
+	if coordinate_index != Converter.INVALID_INDEX:
+		symbol_placed.emit(author, coordinate_index)
