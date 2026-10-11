@@ -4,6 +4,7 @@ extends Node
 
 signal added_pair(duel_pair: DuelPair)
 signal removed_pair(duel_pair: DuelPair)
+signal duel_started(scene: DuelScene, first_player: String, second_player: String)
 
 
 @export var _duel_call_manager: DuelCallManager
@@ -25,6 +26,7 @@ func _on_new_duel_call(first_nickname: String, second_nickname: String) -> void:
 	if _duel_scene_provider.has_free_scenes():
 		var scene = _duel_scene_provider.pop_free_scene()
 		scene.initiate_battle(first_player, second_player)
+		duel_started.emit(scene, first_player.nickname, second_player.nickname)
 	else:
 		var pair = DuelPair.new(first_player, second_player)
 		_duel_queue.push_back(pair)
@@ -38,4 +40,5 @@ func _on_finished_duel() -> void:
 	var pair = _duel_queue.pop_front()
 	var scene = _duel_scene_provider.pop_free_scene()
 	scene.initiate_battle(pair.first_player, pair.second_player)
+	duel_started.emit(scene, pair.first_player.nickname, pair.second_player.nickname)
 	removed_pair.emit(pair)
