@@ -3,3 +3,5 @@
 [resource]
 Label/constants/line_spacing = -5
 Label/constants/outline_size = 2
+RichTextLabel/constants/line_separation = -5
+RichTextLabel/constants/outline_size = 2

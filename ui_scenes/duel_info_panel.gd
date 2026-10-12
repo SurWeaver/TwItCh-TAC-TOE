@@ -12,7 +12,7 @@ var _tween: Tween
 var _is_animating: bool = false
 
 
-@onready var info_label: Label = %InfoLabel
+@onready var info_label: RichTextLabel = %InfoLabel
 
 
 func _ready() -> void:
