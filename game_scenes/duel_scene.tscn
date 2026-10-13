@@ -3,43 +3,30 @@
 [ext_resource type="Script" uid="uid://dw5tjxrl4vj7c" path="res://game_scenes/duel_scene.gd" id="1_kg4v2"]
 [ext_resource type="Texture2D" uid="uid://6lhbg70jra6q" path="res://assets/grid.png" id="1_lnwmh"]
 [ext_resource type="Theme" uid="uid://d2l6uoq1t4nrx" path="res://assets/ui_themes/default_theme.tres" id="2_micrd"]
+[ext_resource type="PackedScene" uid="uid://1nbycignkmov" path="res://ui_scenes/clock_timer.tscn" id="2_vl0jm"]
 [ext_resource type="PackedScene" uid="uid://dtt223ortlpkb" path="res://ui_scenes/duel_info_panel.tscn" id="4_lmlt4"]
+[ext_resource type="PackedScene" uid="uid://bo0ntc06dkr0k" path="res://game_scenes/grid_positions.tscn" id="4_oyikw"]
 [ext_resource type="PackedScene" uid="uid://dmww5vko4lt56" path="res://ui_scenes/duelist_names.tscn" id="4_yb7nt"]
 [ext_resource type="PackedScene" uid="uid://ds2mlvdje4f8i" path="res://ui_scenes/grid_input_helper.tscn" id="6_yb7nt"]
 
 [node name="DuelScene" type="Node2D" unique_id=829608197]
+position = Vector2(544, 349)
+scale = Vector2(3.85, 3.85)
 script = ExtResource("1_kg4v2")
+
+[node name="ClockTimer" parent="." unique_id=587109853 node_paths=PackedStringArray("_turn_timer") instance=ExtResource("2_vl0jm")]
+unique_name_in_owner = true
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+value = 46.0
+_turn_timer = NodePath("../PlayerTurnTimer")
 
 [node name="Grid" type="Sprite2D" parent="." unique_id=1563660282]
 texture = ExtResource("1_lnwmh")
 
-[node name="GridPositions" type="Node2D" parent="." unique_id=631032906]
-
-[node name="Marker2D" type="Marker2D" parent="GridPositions" unique_id=1039707510]
-position = Vector2(-32, -32)
-
-[node name="Marker2D2" type="Marker2D" parent="GridPositions" unique_id=1286071178]
-position = Vector2(0, -32)
-
-[node name="Marker2D3" type="Marker2D" parent="GridPositions" unique_id=775143871]
-position = Vector2(32, -32)
-
-[node name="Marker2D4" type="Marker2D" parent="GridPositions" unique_id=404209115]
-position = Vector2(-32, 0)
-
-[node name="Marker2D5" type="Marker2D" parent="GridPositions" unique_id=1798372239]
-
-[node name="Marker2D6" type="Marker2D" parent="GridPositions" unique_id=1533077690]
-position = Vector2(32, 0)
-
-[node name="Marker2D7" type="Marker2D" parent="GridPositions" unique_id=1170479026]
-position = Vector2(-32, 32)
-
-[node name="Marker2D8" type="Marker2D" parent="GridPositions" unique_id=1648646979]
-position = Vector2(0, 32)
-
-[node name="Marker2D9" type="Marker2D" parent="GridPositions" unique_id=760832339]
-position = Vector2(32, 32)
+[node name="GridPositions" parent="." unique_id=176544330 instance=ExtResource("4_oyikw")]
 
 [node name="UI" type="Control" parent="." unique_id=1286791145]
 layout_mode = 3
@@ -48,9 +35,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("2_micrd")
 
+[node name="GridInputHelper" parent="UI" unique_id=1092303927 instance=ExtResource("6_yb7nt")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -47.0
+offset_top = -47.0
+offset_right = 47.0
+offset_bottom = 47.0
+
 [node name="DuelistNames" parent="UI" unique_id=747100883 instance=ExtResource("4_yb7nt")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -59,18 +53,15 @@ offset_bottom = 40.0
 
 [node name="DuelInfoPanel" parent="UI" unique_id=2075169883 instance=ExtResource("4_lmlt4")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = -114.0
 offset_top = -47.0
 offset_right = 114.0
 offset_bottom = 47.0
 
-[node name="GridInputHelper" parent="UI" unique_id=1092303927 instance=ExtResource("6_yb7nt")]
-layout_mode = 0
-offset_left = -47.0
-offset_top = -47.0
-offset_right = 47.0
-offset_bottom = 47.0
+[node name="PlayerTurnTimer" type="Timer" parent="." unique_id=1101130570]
+unique_name_in_owner = true
+wait_time = 15.0
+one_shot = true
 
-[node name="Timer" type="Timer" parent="." unique_id=1101130570]
+[connection signal="timeout" from="PlayerTurnTimer" to="." method="_on_player_turn_timer_timeout"]
