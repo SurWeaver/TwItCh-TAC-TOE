@@ -9,6 +9,8 @@ const HIDE_TIME: float = 0.2
 
 @export var _helper_visible_color: Color
 
+func _ready() -> void:
+	modulate = Color.TRANSPARENT
 
 func show_all() -> void:
 	for child in get_children():
