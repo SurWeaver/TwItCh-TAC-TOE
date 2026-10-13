@@ -2,8 +2,8 @@ class_name CommandManager
 extends Node
 
 
-@export var duel_scenes_parent: Node2D
-@export var duel_call_manager: DuelCallManager
+@export var _duel_call_manager: DuelCallManager
+@export var _command_transmitter: CommandTransmitter
 
 
 func _ready() -> void:
@@ -13,11 +13,11 @@ func _ready() -> void:
 
 
 func _on_duel_call(author: String, opponent: String) -> void:
-	duel_call_manager.try_add_call(author, opponent)
+	_duel_call_manager.try_add_call(author, opponent)
 
 
 func _on_symbol_placed(author: String, coordinate_index: int) -> void:
-	pass
+	_command_transmitter.transmit_symbol_placement(author, coordinate_index)
 
 
 func _on_color_change(author: String, color: Color) -> void:
