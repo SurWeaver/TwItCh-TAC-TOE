@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1nbycignkmov"]
+
+[ext_resource type="Texture2D" uid="uid://tkxehcudqrcu" path="res://assets/clock_timer.png" id="1_5o4bh"]
+[ext_resource type="Script" uid="uid://cdnkwn83rgkak" path="res://ui_scenes/clock_timer.gd" id="2_ytbhc"]
+
+[node name="ClockTimer" type="TextureProgressBar" unique_id=587109853]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("1_5o4bh")
+script = ExtResource("2_ytbhc")
+_visible_color = Color(1, 1, 1, 0.29803923)
