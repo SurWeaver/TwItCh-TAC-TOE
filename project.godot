@@ -21,6 +21,7 @@ PlayerManager="*uid://c7f76b23b1eey"
 TwitchListener="*uid://c1btu5ssn6l3o"
 CommandParser="*uid://c8ceb4sc41or"
 Refs="*uid://ijdt71q8i238"
+Randomizer="*uid://b07cu5j8mjnur"
 
 [display]
 
