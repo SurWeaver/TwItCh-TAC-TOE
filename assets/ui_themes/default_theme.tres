@@ -1,7 +1,25 @@
 [gd_resource type="Theme" format=3 uid="uid://d2l6uoq1t4nrx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfmtc"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.7058824)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
 Label/constants/line_spacing = -5
 Label/constants/outline_size = 2
-RichTextLabel/constants/line_separation = -5
+Panel/styles/panel = SubResource("StyleBoxFlat_pfmtc")
+RichTextLabel/constants/line_separation = 3
 RichTextLabel/constants/outline_size = 2
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/font_sizes/bold_italics_font_size = 20
+RichTextLabel/font_sizes/italics_font_size = 20
+RichTextLabel/font_sizes/mono_font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 20
