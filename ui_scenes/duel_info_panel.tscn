@@ -28,8 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "Дуэль
-[color=red]MyCoolNickname[/color]
-и
-[color=blue]OtherNickname[/color]"
+[color=blue]MyCoolNickname[/color]
+[color=red]OtherCoolNickname[/color]"
 horizontal_alignment = 1
 vertical_alignment = 1
