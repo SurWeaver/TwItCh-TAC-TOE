@@ -26,7 +26,7 @@ func _on_stop_button_pressed() -> void:
 	TwitchListener.stop()
 
 func _on_connection_established() -> void:
-	status_label.text = tr(Locale.CONNECTED)
+	status_label.text = Locale.CONNECTED
 
 func _on_connection_lost() -> void:
-	status_label.text = tr(Locale.DISCONNECTED)
+	status_label.text = Locale.DISCONNECTED
