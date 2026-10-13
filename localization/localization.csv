@@ -5,3 +5,9 @@ TWITCH_CHANNEL_NAME,Имя канала на твиче,Twitch channel name
 START,Запустить,Start
 STOP,Остановить,Stop
 TWITCH_CHAT_LISTENER,Прослушиватель чата твича,Twitch chat listener
+WIN,В,W
+LOSE,П,L
+TIE,Н,T
+VERSUS,против,versus
+GET_READY_FOR_BATTLE,Приготовьтесь к сражению!,Get ready for battle!
+BATTLE_START,Битва начинается!,The battle begins!
