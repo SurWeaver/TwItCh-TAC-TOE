@@ -45,7 +45,9 @@ func _update_look() -> void:
 
 	columns = _grid_visual.grid_size
 
-	for i in range(_grid_visual.grid_size ** 2):
+	var cell_count = _grid_visual.grid_size ** 2
+
+	for i in range(cell_count):
 		var label = Label.new()
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.size_flags_vertical = Control.SIZE_EXPAND_FILL
