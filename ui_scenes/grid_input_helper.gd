@@ -1,3 +1,4 @@
+@tool
 class_name GridInputHelper
 extends GridContainer
 
@@ -7,10 +8,18 @@ const TRANSITION_TIME: float = 1.0
 const HIDE_TIME: float = 0.2
 
 
-@export var _helper_visible_color: Color
+@export var _grid_visual: GridVisual
+
+
+@export var _helper_visible_color: Color = Color(1.0, 1.0, 1.0, 0.5)
+
 
 func _ready() -> void:
+	_grid_visual.grid_size_updated.connect(_update_look)
+
 	modulate = Color.TRANSPARENT
+	if get_child_count() == 0:
+		_update_look()
 
 func show_all() -> void:
 	for child in get_children():
@@ -28,3 +37,19 @@ func hide_coordinate(coordinate_index: int) -> void:
 	if label:
 		var tween = create_tween()
 		tween.tween_property(label, "modulate", Color.TRANSPARENT, HIDE_TIME)
+
+
+func _update_look() -> void:
+	for child in get_children():
+		child.queue_free()
+
+	columns = _grid_visual.grid_size
+
+	for i in range(_grid_visual.grid_size ** 2):
+		var label = Label.new()
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label.text = "!%d" % (i + 1)
+		add_child(label)

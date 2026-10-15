@@ -1,5 +1,5 @@
 class_name DuelScene
-extends Node2D
+extends Control
 
 
 signal finished_duel(duel_scene: DuelScene)
@@ -24,7 +24,8 @@ var _current_second_player: Player
 
 
 @onready var _duel_info_panel: DuelInfoPanel = %DuelInfoPanel
-@onready var _duelist_names: DuelistNames = %DuelistNames
+@onready var _first_player_name: PlayerName = $FirstPlayerName
+@onready var _second_player_name: PlayerName = $SecondPlayerName
 @onready var _player_turn_timer: Timer = %PlayerTurnTimer
 @onready var _turn_timer_ui: ClockTimer = %ClockTimer
 @onready var _grid_input_helper: GridInputHelper = %GridInputHelper
@@ -94,7 +95,8 @@ func _on_finished_showing_notifications() -> void:
 			_turn_timer_ui.animate_show()
 
 			_grid_input_helper.show_all()
-			_duelist_names.show_players(_current_first_player, _current_second_player)
+			_first_player_name.show_player(_current_first_player)
+			_second_player_name.show_player(_current_second_player)
 
 		State.BATTLE_FINISHED:
 func _on_player_turn_timer_timeout() -> void:
@@ -110,16 +112,22 @@ func _change_state(new_state: State) -> void:
 
 	match new_state:
 		State.FREE:
-			_duelist_names.hide_players()
+			_first_player_name.hide_player()
+			_second_player_name.hide_player()
+
 			pass
 		State.GAME_STARTING:
 			_show_battle_start_notifications()
 		State.FIRST_PLAYER_MOVES:
-			_duelist_names.highlight_first_player()
+			_first_player_name.highlight()
+			_second_player_name.dehighlight()
 		State.SECOND_PLAYER_MOVES:
-			_duelist_names.highlight_second_player()
+			_second_player_name.highlight()
+			_first_player_name.dehighlight()
 		State.BATTLE_FINISHED:
-			_duelist_names.dehighlight()
+			_first_player_name.dehighlight()
+			_second_player_name.dehighlight()
+
 			_grid_input_helper.hide_all()
 			_turn_timer_ui.animate_hide()
 

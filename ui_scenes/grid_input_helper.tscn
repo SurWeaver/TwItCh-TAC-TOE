@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://ui_scenes/grid_input_helper.gd" id="1_yl7qd"]
 
 [node name="GridInputHelper" type="GridContainer" unique_id=1092303927]
-modulate = Color(1, 1, 1, 0.5019608)
+modulate = Color(1, 1, 1, 0)
 offset_right = 94.0
 offset_bottom = 94.0
 pivot_offset = Vector2(47, 47)

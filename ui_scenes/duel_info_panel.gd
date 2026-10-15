@@ -1,5 +1,5 @@
 class_name DuelInfoPanel
-extends Control
+extends Panel
 
 
 signal finished_showing
