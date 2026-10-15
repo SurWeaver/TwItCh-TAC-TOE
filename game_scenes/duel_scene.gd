@@ -24,8 +24,8 @@ var _current_second_player: Player
 
 
 @onready var _duel_info_panel: DuelInfoPanel = %DuelInfoPanel
-@onready var _first_player_name: PlayerName = $FirstPlayerName
-@onready var _second_player_name: PlayerName = $SecondPlayerName
+@onready var _first_player_name: PlayerName = %FirstPlayerName
+@onready var _second_player_name: PlayerName = %SecondPlayerName
 @onready var _player_turn_timer: Timer = %PlayerTurnTimer
 @onready var _turn_timer_ui: ClockTimer = %ClockTimer
 @onready var _grid_input_helper: GridInputHelper = %GridInputHelper
@@ -89,14 +89,13 @@ func process_symbol_placement(nickname: String, coordinate_index: int) -> void:
 func _on_finished_showing_notifications() -> void:
 	match _state:
 		State.GAME_STARTING:
-			_change_state(State.FIRST_PLAYER_MOVES)
 
 			_player_turn_timer.start()
 			_turn_timer_ui.animate_show()
 
 			_grid_input_helper.show_all()
-			_first_player_name.show_player(_current_first_player)
-			_second_player_name.show_player(_current_second_player)
+
+			_change_state(State.FIRST_PLAYER_MOVES)
 
 		State.BATTLE_FINISHED:
 func _on_player_turn_timer_timeout() -> void:
@@ -117,6 +116,9 @@ func _change_state(new_state: State) -> void:
 
 			pass
 		State.GAME_STARTING:
+			_first_player_name.show_player(_current_first_player)
+			_second_player_name.show_player(_current_second_player)
+
 			_show_battle_start_notifications()
 		State.FIRST_PLAYER_MOVES:
 			_first_player_name.highlight()

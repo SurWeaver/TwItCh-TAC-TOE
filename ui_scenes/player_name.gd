@@ -2,8 +2,8 @@ class_name PlayerName
 extends Label
 
 
-const VISIBLE = 1.0
-const HIDDEN = 0.0
+const HIDDEN: float = 0.0
+const VISIBLE: float = 1.0
 
 
 @export var _alpha_change_animation_duration: float = 0.5
@@ -15,11 +15,12 @@ const HIDDEN = 0.0
 func _ready() -> void:
 	modulate = Color.TRANSPARENT
 	pivot_offset_ratio = Vector2(0.5, 0.5)
+	offset_transform_enabled = true
 
 
 func show_player(player: Player) -> void:
 	text = player.nickname
-	modulate = player.color
+	modulate = Color(player.color, HIDDEN)
 
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", VISIBLE, _alpha_change_animation_duration)
