@@ -15,6 +15,8 @@ const HIDE_TIME: float = 0.2
 
 
 func _ready() -> void:
+	set("theme_override_constants/h_separation", 0)
+	set("theme_override_constants/v_separation", 0)
 	_grid_visual.grid_size_updated.connect(_update_look)
 
 	modulate = Color.TRANSPARENT

@@ -12,3 +12,5 @@ enum DuelResult {
 	LOSE,
 	TIE,
 }
+
+const UI_TYPE_HELP_LABEL = &"HelpLabel"
