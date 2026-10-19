@@ -8,7 +8,7 @@ const TRANSITION_TIME: float = 1.0
 const HIDE_TIME: float = 0.2
 
 
-@export var _grid_visual: GridVisual
+@export var _grid_settings: GridSettings
 
 
 @export var _helper_visible_color: Color = Color(1.0, 1.0, 1.0, 0.5)
@@ -17,7 +17,7 @@ const HIDE_TIME: float = 0.2
 func _ready() -> void:
 	set("theme_override_constants/h_separation", 0)
 	set("theme_override_constants/v_separation", 0)
-	_grid_visual.grid_size_updated.connect(_update_look)
+	_grid_settings.size_changed.connect(_update_look)
 
 	modulate = Color.TRANSPARENT
 	if get_child_count() == 0:
@@ -46,9 +46,9 @@ func _update_look() -> void:
 	for child in get_children():
 		child.queue_free()
 
-	columns = _grid_visual.grid_size
+	columns = _grid_settings.grid_size
 
-	var cell_count = _grid_visual.grid_size ** 2
+	var cell_count = _grid_settings.grid_size ** 2
 
 	for i in range(cell_count):
 		var label = Label.new()

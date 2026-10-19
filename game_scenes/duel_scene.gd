@@ -30,6 +30,8 @@ var _current_second_player: Player
 @onready var _turn_timer_ui: ClockTimer = %ClockTimer
 @onready var _grid_input_helper: GridInputHelper = %GridInputHelper
 
+@onready var _grid_settings: GridSettings = %GridSettings
+
 
 func _ready() -> void:
 	_duel_info_panel.finished_showing.connect(_on_finished_showing_notifications)

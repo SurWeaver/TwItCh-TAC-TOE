@@ -3,7 +3,7 @@ class_name GridVisual
 extends NinePatchRect
 
 
-signal grid_size_updated
+@export var _grid_settings: GridSettings
 
 
 ## Количество пикселей одной клетки решётки. Должно равняться примерно 1/3 текстуры.
@@ -15,15 +15,9 @@ signal grid_size_updated
 		_update_look()
 
 
-## Количество желаемых клеток на решётке
-@export_range(3, 100, 1, "suffix:cells") var grid_size: int = 3:
-	get():
-		return grid_size
-	set(value):
-		grid_size = value
-		_update_look()
+func _ready() -> void:
+	_grid_settings.size_changed.connect(_update_look)
 
 
 func _update_look() -> void:
-	custom_minimum_size = Vector2.ONE * grid_size * tile_size
-	grid_size_updated.emit()
+	custom_minimum_size = Vector2.ONE * _grid_settings.grid_size * tile_size

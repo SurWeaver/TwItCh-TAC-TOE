@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6lhbg70jra6q" path="res://assets/grid.png" id="1_lnwmh"]
 [ext_resource type="Theme" uid="uid://d2l6uoq1t4nrx" path="res://assets/ui_themes/default_theme.tres" id="2_micrd"]
 [ext_resource type="PackedScene" uid="uid://1nbycignkmov" path="res://ui_scenes/clock_timer.tscn" id="2_vl0jm"]
+[ext_resource type="Script" uid="uid://dmym18yogmyt5" path="res://grid_settings.gd" id="3_i2mrj"]
 [ext_resource type="Script" uid="uid://bfvuf811fm5id" path="res://ui_scenes/player_name.gd" id="3_oyikw"]
 [ext_resource type="PackedScene" uid="uid://dtt223ortlpkb" path="res://ui_scenes/duel_info_panel.tscn" id="4_lmlt4"]
 [ext_resource type="Script" uid="uid://t8311whkmsjs" path="res://ui_components/grid_visual.gd" id="4_oyikw"]
@@ -20,6 +21,11 @@ offset_bottom = -335.24805
 theme = ExtResource("2_micrd")
 script = ExtResource("1_kg4v2")
 
+[node name="GridSettings" type="Node" parent="." unique_id=977443051]
+unique_name_in_owner = true
+script = ExtResource("3_i2mrj")
+metadata/_custom_type_script = "uid://dmym18yogmyt5"
+
 [node name="FirstPlayerName" type="Label" parent="." unique_id=1879287703]
 layout_mode = 2
 text = "1234567890123456789012345"
@@ -31,7 +37,7 @@ metadata/_custom_type_script = "uid://bfvuf811fm5id"
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1678280496]
 layout_mode = 2
 
-[node name="GridVisual" type="NinePatchRect" parent="CenterContainer" unique_id=1853475589]
+[node name="GridVisual" type="NinePatchRect" parent="CenterContainer" unique_id=1853475589 node_paths=PackedStringArray("_grid_settings")]
 custom_minimum_size = Vector2(93, 93)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -45,7 +51,7 @@ patch_margin_bottom = 31
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 script = ExtResource("4_oyikw")
-tile_size = 31
+_grid_settings = NodePath("../../GridSettings")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer/GridVisual" unique_id=434585194]
 show_behind_parent = true
@@ -64,7 +70,7 @@ value = 46.0
 nine_patch_stretch = true
 _turn_timer = NodePath("../../../../PlayerTurnTimer")
 
-[node name="GridInputHelper" type="GridContainer" parent="CenterContainer/GridVisual" unique_id=1980268129 node_paths=PackedStringArray("_grid_visual")]
+[node name="GridInputHelper" type="GridContainer" parent="CenterContainer/GridVisual" unique_id=1980268129 node_paths=PackedStringArray("_grid_settings")]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -75,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 script = ExtResource("7_oyikw")
-_grid_visual = NodePath("..")
+_grid_settings = NodePath("../../../GridSettings")
 metadata/_custom_type_script = "uid://dyoiq0gwycrqn"
 
 [node name="DuelInfoPanel" parent="CenterContainer" unique_id=2075169883 instance=ExtResource("4_lmlt4")]
