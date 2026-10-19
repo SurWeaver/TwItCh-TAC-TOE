@@ -12,12 +12,12 @@ func _ready() -> void:
 	_queue_manager.duel_started.connect(_on_duel_started)
 
 
-func transmit_symbol_placement(author: String, coordinate_index: int) -> void:
+func transmit_symbol_placement(author: String, coordinate: Vector2i) -> void:
 	if not _playing_duel_scenes.has(author):
 		return
 
 	var scene = _playing_duel_scenes[author]
-	scene.process_symbol_placement(author, coordinate_index)
+	scene.process_symbol_placement(author, coordinate)
 
 
 func _on_duel_started(duel_scene: DuelScene, first_player: String, second_player: String) -> void:

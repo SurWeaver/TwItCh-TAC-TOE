@@ -32,7 +32,8 @@ func hide_all() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, TRANSITION_TIME)
 
-func hide_coordinate(coordinate_index: int) -> void:
+func hide_coordinate(coordinate: Vector2i) -> void:
+	var coordinate_index = Convert.to_index_from_vec(coordinate, columns)
 	var label = get_child(coordinate_index) as Label
 	if label:
 		var tween = create_tween()
@@ -53,5 +54,6 @@ func _update_look() -> void:
 		label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		label.text = "!%d" % (i + 1)
+		label.theme_type_variation = Constants.UI_TYPE_HELP_LABEL
+		label.text = "!%s" % Convert.to_letter_coord_from_index(i, columns)
 		add_child(label)

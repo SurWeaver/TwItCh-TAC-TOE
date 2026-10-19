@@ -8,7 +8,7 @@ signal duel_call(author: String, opponent: String)
 signal changed_color(author: String, color: Color)
 
 ## message: !1
-signal symbol_placed(author: String, coordinate_index: int)
+signal symbol_placed(author: String, coordinate: Vector2i)
 
 
 
@@ -49,7 +49,8 @@ func _parse_color(author: String, message: String) -> void:
 		changed_color.emit(author, color)
 
 func _parse_coordinate(author: String, message: String) -> void:
-	var coordinate = message.trim_prefix("!").get_slice(" ", 0)
-	var coordinate_index = Converter.to_coordinate_index(coordinate)
-	if coordinate_index != Converter.INVALID_INDEX:
-		symbol_placed.emit(author, coordinate_index)
+	var letter_coordinate = message.trim_prefix("!").get_slice(" ", 0)
+
+	var coordinate = Convert.to_vec_from_letter_coord(letter_coordinate)
+	if coordinate != Convert.INVALID_COORDINATE:
+		symbol_placed.emit(author, coordinate)

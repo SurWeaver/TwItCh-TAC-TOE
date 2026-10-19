@@ -82,7 +82,7 @@ func _show_player_stats(player: Player) -> void:
 	_duel_info_panel.show_text(player_stats, 0.5)
 
 
-func process_symbol_placement(nickname: String, coordinate_index: int) -> void:
+func process_symbol_placement(nickname: String, coordinate: Vector2i) -> void:
 	pass
 
 
