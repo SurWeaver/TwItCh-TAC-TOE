@@ -9,10 +9,10 @@
 
 [node name="DuelHall" type="Node2D" unique_id=963117746]
 
-[node name="CommandManager" type="Node" parent="." unique_id=230197748 node_paths=PackedStringArray("duel_scenes_parent", "duel_call_manager")]
+[node name="CommandManager" type="Node" parent="." unique_id=230197748 node_paths=PackedStringArray("_duel_call_manager", "_command_transmitter")]
 script = ExtResource("1_pcl6o")
-duel_scenes_parent = NodePath("../DuelSceneProvider")
-duel_call_manager = NodePath("../DuelCallManager")
+_duel_call_manager = NodePath("../DuelCallManager")
+_command_transmitter = NodePath("../CommandTransmitter")
 metadata/_custom_type_script = "uid://dwm0umubawkw1"
 
 [node name="CommandTransmitter" type="Node" parent="." unique_id=454327272 node_paths=PackedStringArray("_queue_manager")]
