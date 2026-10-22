@@ -3,6 +3,8 @@ class_name GridInputHelper
 extends GridContainer
 
 
+const UI_TYPE_HELP_LABEL = &"HelpLabel"
+
 const LABEL_VISIBLE_COLOR: Color = Color.WHITE
 const TRANSITION_TIME: float = 1.0
 const HIDE_TIME: float = 0.2
@@ -56,6 +58,6 @@ func _update_look() -> void:
 		label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		label.theme_type_variation = Constants.UI_TYPE_HELP_LABEL
+		label.theme_type_variation = UI_TYPE_HELP_LABEL
 		label.text = "!%s" % Convert.to_letter_coord_from_index(i, columns)
 		add_child(label)
