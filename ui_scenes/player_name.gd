@@ -17,11 +17,11 @@ func _ready() -> void:
 	pivot_offset_ratio = Vector2(0.5, 0.5)
 	offset_transform_enabled = true
 
-
-func show_player(player: Player) -> void:
+func set_player(player: Player) -> void:
 	text = player.nickname
-	modulate = Color(player.color, HIDDEN)
+	modulate = Color(player.color, modulate.a)
 
+func show_player() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", VISIBLE, _alpha_change_animation_duration)
 
