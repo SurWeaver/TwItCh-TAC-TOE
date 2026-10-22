@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://cjiwb0uc50o52"]
 
-[ext_resource type="Script" uid="uid://dw5tjxrl4vj7c" path="res://game_scenes/duel_scene.gd" id="1_kg4v2"]
+[ext_resource type="Script" uid="uid://dw5tjxrl4vj7c" path="res://duel/duel_scene/duel_scene.gd" id="1_kg4v2"]
 [ext_resource type="Texture2D" uid="uid://6lhbg70jra6q" path="res://assets/grid.png" id="1_lnwmh"]
 [ext_resource type="Theme" uid="uid://d2l6uoq1t4nrx" path="res://assets/ui_themes/default_theme.tres" id="2_micrd"]
-[ext_resource type="PackedScene" uid="uid://1nbycignkmov" path="res://ui_scenes/clock_timer.tscn" id="2_vl0jm"]
-[ext_resource type="Script" uid="uid://dmym18yogmyt5" path="res://grid_settings.gd" id="3_i2mrj"]
-[ext_resource type="Script" uid="uid://bfvuf811fm5id" path="res://ui_scenes/player_name.gd" id="3_oyikw"]
-[ext_resource type="PackedScene" uid="uid://dtt223ortlpkb" path="res://ui_scenes/duel_info_panel.tscn" id="4_lmlt4"]
-[ext_resource type="Script" uid="uid://t8311whkmsjs" path="res://ui_components/grid_visual.gd" id="4_oyikw"]
-[ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://ui_scenes/grid_input_helper.gd" id="7_oyikw"]
+[ext_resource type="PackedScene" uid="uid://1nbycignkmov" path="res://duel/ui/scenes/clock_timer.tscn" id="2_vl0jm"]
+[ext_resource type="Script" uid="uid://dmym18yogmyt5" path="res://components/grid_settings.gd" id="3_i2mrj"]
+[ext_resource type="Script" uid="uid://bfvuf811fm5id" path="res://duel/ui/components/player_name.gd" id="3_oyikw"]
+[ext_resource type="PackedScene" uid="uid://dtt223ortlpkb" path="res://duel/ui/scenes/duel_info_panel.tscn" id="4_lmlt4"]
+[ext_resource type="Script" uid="uid://t8311whkmsjs" path="res://grid/components/grid_visual.gd" id="4_oyikw"]
+[ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://grid/scenes/grid_input_helper.gd" id="7_oyikw"]
+[ext_resource type="Script" uid="uid://glakk6sh5twy" path="res://grid/components/symbol_container.gd" id="8_kmm5k"]
+[ext_resource type="Script" uid="uid://c4ie8qpeav2b6" path="res://components/state_machine/state_machine.gd" id="11_rab1u"]
+[ext_resource type="Script" uid="uid://b1o8c183i6qjs" path="res://duel/duel_scene/states/free_state.gd" id="12_ugy14"]
+[ext_resource type="Script" uid="uid://dyvw74dprhegj" path="res://duel/duel_scene/states/game_starting_state.gd" id="13_1hwk0"]
+[ext_resource type="Script" uid="uid://c6k1fhauca0h2" path="res://duel/duel_scene/states/first_player_moves_state.gd" id="14_uvdoi"]
+[ext_resource type="Script" uid="uid://dxm3qv4040lbl" path="res://duel/duel_scene/states/second_player_moves_state.gd" id="15_vcjel"]
+[ext_resource type="Script" uid="uid://cvv62jq0yibxr" path="res://duel/duel_scene/states/duel_finished_state.gd" id="16_o76dh"]
 
 [node name="DuelScene" type="VBoxContainer" unique_id=403754269]
 anchors_preset = -1
@@ -16,8 +23,8 @@ anchor_right = 0.777
 anchor_bottom = 0.82600003
 offset_left = 20.0
 offset_top = 32.0
-offset_right = -586.104
-offset_bottom = -335.24805
+offset_right = -468.104
+offset_bottom = -343.24805
 theme = ExtResource("2_micrd")
 script = ExtResource("1_kg4v2")
 
@@ -27,7 +34,9 @@ script = ExtResource("3_i2mrj")
 metadata/_custom_type_script = "uid://dmym18yogmyt5"
 
 [node name="FirstPlayerName" type="Label" parent="." unique_id=1879287703]
+unique_name_in_owner = true
 layout_mode = 2
+offset_transform_enabled = true
 text = "1234567890123456789012345"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,7 +48,7 @@ layout_mode = 2
 
 [node name="GridVisual" type="NinePatchRect" parent="CenterContainer" unique_id=1853475589 node_paths=PackedStringArray("_grid_settings")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(192, 192)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -88,13 +97,30 @@ script = ExtResource("7_oyikw")
 _grid_settings = NodePath("../../../GridSettings")
 metadata/_custom_type_script = "uid://dyoiq0gwycrqn"
 
+[node name="SymbolContainer" type="GridContainer" parent="CenterContainer/GridVisual" unique_id=1925741827 node_paths=PackedStringArray("_grid_settings")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+script = ExtResource("8_kmm5k")
+_grid_settings = NodePath("../../../GridSettings")
+metadata/_custom_type_script = "uid://glakk6sh5twy"
+
 [node name="DuelInfoPanel" parent="CenterContainer" unique_id=2075169883 instance=ExtResource("4_lmlt4")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 100)
 layout_mode = 2
 
 [node name="SecondPlayerName" type="Label" parent="." unique_id=1543776030]
+unique_name_in_owner = true
 layout_mode = 2
+offset_transform_enabled = true
 text = "1234567890123456789012345"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -106,4 +132,22 @@ unique_name_in_owner = true
 wait_time = 15.0
 one_shot = true
 
-[connection signal="timeout" from="PlayerTurnTimer" to="." method="_on_player_turn_timer_timeout"]
+[node name="StateMachine" type="Node" parent="." unique_id=985185012]
+unique_name_in_owner = true
+script = ExtResource("11_rab1u")
+metadata/_custom_type_script = "uid://c4ie8qpeav2b6"
+
+[node name="Free" type="Node" parent="StateMachine" unique_id=429724476]
+script = ExtResource("12_ugy14")
+
+[node name="GameStarting" type="Node" parent="StateMachine" unique_id=724532187]
+script = ExtResource("13_1hwk0")
+
+[node name="FirstPlayerMoves" type="Node" parent="StateMachine" unique_id=1670612906]
+script = ExtResource("14_uvdoi")
+
+[node name="SecondPlayerMoves" type="Node" parent="StateMachine" unique_id=9796536]
+script = ExtResource("15_vcjel")
+
+[node name="DuelFinished" type="Node" parent="StateMachine" unique_id=724314676]
+script = ExtResource("16_o76dh")

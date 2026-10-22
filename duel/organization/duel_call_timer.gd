@@ -9,7 +9,7 @@ var _author: String
 var _opponent: String
 
 
-func _init(author: String, opponent: String = Constants.NO_OPPONENT) -> void:
+func _init(author: String, opponent: String = Duel.NO_OPPONENT) -> void:
 	autostart = true
 	start(CALL_ANSWER_TIME)
 	_author = author
@@ -26,10 +26,10 @@ func get_opponent() -> String:
 	return _opponent
 
 func has_participant(nickname: String) -> bool:
-	return nickname == _author or (_opponent == nickname and _opponent != Constants.NO_OPPONENT)
+	return nickname == _author or (_opponent == nickname and _opponent != Duel.NO_OPPONENT)
 
 func has_concrete_opponent() -> bool:
-	return _opponent != Constants.NO_OPPONENT
+	return _opponent != Duel.NO_OPPONENT
 
 
 func _autostop_on_connection_loss() -> void:

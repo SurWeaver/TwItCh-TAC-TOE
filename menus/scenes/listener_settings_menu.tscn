@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddnwpthnfnits"]
 
-[ext_resource type="Script" uid="uid://ckmd17y7bfdua" path="res://ui_scenes/listener_settings_menu.gd" id="1_7jh5h"]
+[ext_resource type="Script" uid="uid://ckmd17y7bfdua" path="res://menus/scenes/listener_settings_menu.gd" id="1_7jh5h"]
 
 [node name="ListenerSettingsMenu" type="VBoxContainer" unique_id=2084615866]
 offset_right = 240.0

@@ -1,5 +1,5 @@
 @abstract
-class_name Convert
+class_name GridConvert
 extends Node
 
 

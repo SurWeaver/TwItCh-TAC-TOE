@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds2mlvdje4f8i"]
 
-[ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://ui_scenes/grid_input_helper.gd" id="1_yl7qd"]
+[ext_resource type="Script" uid="uid://dyoiq0gwycrqn" path="res://grid/scenes/grid_input_helper.gd" id="1_yl7qd"]
 
 [node name="GridInputHelper" type="GridContainer" unique_id=1092303927]
 modulate = Color(1, 1, 1, 0)

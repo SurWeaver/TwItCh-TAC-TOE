@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dtt223ortlpkb"]
 
-[ext_resource type="Script" uid="uid://cfbyr5p65nu2k" path="res://ui_scenes/duel_info_panel.gd" id="1_65b6a"]
+[ext_resource type="Script" uid="uid://cfbyr5p65nu2k" path="res://duel/ui/scenes/duel_info_panel.gd" id="1_58ia7"]
 
 [node name="DuelInfoPanel" type="Panel" unique_id=488772097]
 offset_right = 228.0
 offset_bottom = 94.0
-script = ExtResource("1_65b6a")
+script = ExtResource("1_58ia7")
 
 [node name="InfoLabel" type="RichTextLabel" parent="." unique_id=101482210]
 unique_name_in_owner = true

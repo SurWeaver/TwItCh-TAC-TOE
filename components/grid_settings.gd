@@ -13,3 +13,6 @@ signal size_changed
 	set(value):
 		grid_size = clampi(value, 3, 26)
 		size_changed.emit()
+
+## Количество необходимых символов в ряд для победы (Размер ограничен количеством букв латиницы)
+@export_range(3, 26, 1) var symbol_count_to_win: int = 3

@@ -37,7 +37,7 @@ func hide_all() -> void:
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, TRANSITION_TIME)
 
 func hide_coordinate(coordinate: Vector2i) -> void:
-	var coordinate_index = Convert.to_index_from_vec(coordinate, columns)
+	var coordinate_index = GridConvert.to_index_from_vec(coordinate, columns)
 	var label = get_child(coordinate_index) as Label
 	if label:
 		var tween = create_tween()
@@ -59,5 +59,5 @@ func _update_look() -> void:
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label.theme_type_variation = UI_TYPE_HELP_LABEL
-		label.text = "!%s" % Convert.to_letter_coord_from_index(i, columns)
+		label.text = "!%s" % GridConvert.to_letter_coord_from_index(i, columns)
 		add_child(label)

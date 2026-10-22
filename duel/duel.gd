@@ -1,11 +1,11 @@
 @abstract
-class_name Constants
+class_name Duel
 extends Node
 
 
 const NO_OPPONENT = ""
 
-enum DuelResult {
+enum Result {
 	WIN,
 	LOSE,
 	TIE,

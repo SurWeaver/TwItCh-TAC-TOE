@@ -13,7 +13,7 @@ func try_add_call(author: String, opponent: String = "") -> void:
 	if author_timer:
 		author_timer.queue_free()
 
-	if opponent == Constants.NO_OPPONENT:
+	if opponent == Duel.NO_OPPONENT:
 		_process_no_opponent_call(author)
 	else:
 		_process_opponent_call(author, opponent)
@@ -32,7 +32,7 @@ func _process_no_opponent_call(author: String) -> void:
 		_answer_call(no_opponent_timer, author)
 		return
 
-	_create_call(author, Constants.NO_OPPONENT)
+	_create_call(author, Duel.NO_OPPONENT)
 
 func _process_opponent_call(author: String, opponent: String) -> void:
 	## Ответ на вызов, адресованный конкретно автору
@@ -42,7 +42,7 @@ func _process_opponent_call(author: String, opponent: String) -> void:
 		return
 
 	## Ответ на существующий вызов, не адресованный никому
-	var random_opponent_call = _get_certain_timer(opponent, Constants.NO_OPPONENT)
+	var random_opponent_call = _get_certain_timer(opponent, Duel.NO_OPPONENT)
 	if random_opponent_call:
 		_answer_call(random_opponent_call, author)
 		return

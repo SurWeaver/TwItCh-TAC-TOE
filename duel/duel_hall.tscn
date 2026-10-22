@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cgaewsy06jxfp"]
+
+[ext_resource type="Script" uid="uid://dwm0umubawkw1" path="res://duel/organization/command_manager.gd" id="1_8mfvs"]
+[ext_resource type="Script" uid="uid://bf7sl3ngqtdrd" path="res://duel/organization/command_transmitter.gd" id="2_ffgs8"]
+[ext_resource type="Script" uid="uid://i2oxcd6u1e2m" path="res://duel/organization/duel_call_manager.gd" id="3_vlte0"]
+[ext_resource type="Script" uid="uid://8ng2m3qenjql" path="res://duel/organization/duel_queue_manager.gd" id="4_qrqjg"]
+[ext_resource type="Script" uid="uid://dkkf50t0vwkhn" path="res://duel/organization/duel_scene_provider.gd" id="5_lcri4"]
+[ext_resource type="PackedScene" uid="uid://cjiwb0uc50o52" path="res://duel/duel_scene/duel_scene.tscn" id="6_xv37l"]
+
+[node name="DuelHall" type="Control" unique_id=1717654094]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommandManager" type="Node" parent="." unique_id=230197748 node_paths=PackedStringArray("_duel_call_manager", "_command_transmitter")]
+script = ExtResource("1_8mfvs")
+_duel_call_manager = NodePath("../DuelCallManager")
+_command_transmitter = NodePath("../CommandTransmitter")
+metadata/_custom_type_script = "uid://dwm0umubawkw1"
+
+[node name="CommandTransmitter" type="Node" parent="." unique_id=454327272 node_paths=PackedStringArray("_queue_manager")]
+script = ExtResource("2_ffgs8")
+_queue_manager = NodePath("../DuelQueueManager")
+metadata/_custom_type_script = "uid://bf7sl3ngqtdrd"
+
+[node name="DuelCallManager" type="Node" parent="." unique_id=2029186284]
+script = ExtResource("3_vlte0")
+metadata/_custom_type_script = "uid://i2oxcd6u1e2m"
+
+[node name="DuelQueueManager" type="Node" parent="." unique_id=719390111 node_paths=PackedStringArray("_duel_call_manager")]
+script = ExtResource("4_qrqjg")
+_duel_call_manager = NodePath("../DuelCallManager")
+metadata/_custom_type_script = "uid://8ng2m3qenjql"
+
+[node name="DuelSceneProvider" type="GridContainer" parent="." unique_id=2059399744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("5_lcri4")
+
+[node name="DuelScene" parent="DuelSceneProvider" unique_id=829608197 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene2" parent="DuelSceneProvider" unique_id=1010660135 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene3" parent="DuelSceneProvider" unique_id=1849011316 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene4" parent="DuelSceneProvider" unique_id=794946228 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene5" parent="DuelSceneProvider" unique_id=8173078 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene6" parent="DuelSceneProvider" unique_id=323782516 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene7" parent="DuelSceneProvider" unique_id=1943931980 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene8" parent="DuelSceneProvider" unique_id=396436869 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene9" parent="DuelSceneProvider" unique_id=612816592 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene10" parent="DuelSceneProvider" unique_id=613846648 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene11" parent="DuelSceneProvider" unique_id=945861195 instance=ExtResource("6_xv37l")]
+layout_mode = 2
+
+[node name="DuelScene12" parent="DuelSceneProvider" unique_id=171842633 instance=ExtResource("6_xv37l")]
+layout_mode = 2

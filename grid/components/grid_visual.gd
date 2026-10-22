@@ -12,7 +12,7 @@ extends NinePatchRect
 		return tile_size
 	set(value):
 		tile_size = value
-		_update_look()
+		_update_look.call_deferred()
 
 
 func _ready() -> void:

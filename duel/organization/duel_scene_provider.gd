@@ -1,5 +1,5 @@
 class_name DuelSceneProvider
-extends Node2D
+extends Control
 
 
 signal finished_duel

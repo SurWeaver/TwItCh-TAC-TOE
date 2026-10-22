@@ -11,19 +11,19 @@ const LAST_DUEL_RESULTS_LIMIT = 10
 @export var loses: int = 0
 @export var ties: int = 0
 
-@export var _last_duel_results: Array[Constants.DuelResult]
+@export var _last_duel_results: Array[Duel.Result]
 
 
 func get_match_count() -> int:
 	return wins + loses + ties
 
-func add_duel_result(result: Constants.DuelResult) -> void:
+func add_duel_result(result: Duel.Result) -> void:
 	match result:
-		Constants.DuelResult.WIN:
+		Duel.Result.WIN:
 			wins += 1
-		Constants.DuelResult.LOSE:
+		Duel.Result.LOSE:
 			loses += 1
-		Constants.DuelResult.TIE:
+		Duel.Result.TIE:
 			ties += 1
 
 	_last_duel_results.push_front(result)
@@ -35,7 +35,7 @@ func get_last_wins_percentage() -> float:
 	if _last_duel_results.is_empty():
 		return 0
 
-	var win_count = float(_last_duel_results.count(Constants.DuelResult.WIN))
+	var win_count = float(_last_duel_results.count(Duel.Result.WIN))
 	## Делим на текущий размер, так как пользователь мог только начать играть.
 	return win_count / _last_duel_results.size()
 

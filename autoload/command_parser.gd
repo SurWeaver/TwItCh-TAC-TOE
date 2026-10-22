@@ -34,7 +34,7 @@ func _parse_message(author: String, message: String) -> void:
 
 func _parse_duel(author: String, message: String) -> void:
 	if "@" not in message:
-		duel_call.emit(author, Constants.NO_OPPONENT)
+		duel_call.emit(author, Duel.NO_OPPONENT)
 		return
 
 	var at_symbol = message.find("@")
@@ -51,6 +51,6 @@ func _parse_color(author: String, message: String) -> void:
 func _parse_coordinate(author: String, message: String) -> void:
 	var letter_coordinate = message.trim_prefix("!").get_slice(" ", 0)
 
-	var coordinate = Convert.to_vec_from_letter_coord(letter_coordinate)
-	if coordinate != Convert.INVALID_COORDINATE:
+	var coordinate = GridConvert.to_vec_from_letter_coord(letter_coordinate)
+	if coordinate != GridConvert.INVALID_COORDINATE:
 		symbol_placed.emit(author, coordinate)
