@@ -9,6 +9,9 @@ signal queried_state_change(new_state: StringName)
 var is_active: bool = false
 
 
+func _initialize() -> void:
+	pass
+
 @warning_ignore("unused_parameter")
 func _handle_input(event: InputEvent) -> void:
 	pass

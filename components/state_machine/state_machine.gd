@@ -2,13 +2,18 @@ class_name StateMachine
 extends Node
 
 
+@export var state_initializer: StateInitializer
+
 var _state: State
 
 
 func _ready() -> void:
 	await owner.ready
 	for child in get_children():
-		(child as State).queried_state_change.connect(change_state_to)
+		var state = child as State
+		state_initializer.initialize_state(state, owner)
+		state.queried_state_change.connect(change_state_to)
+		state._initialize()
 	_state = get_child(0)
 	_state._enter()
 
