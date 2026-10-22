@@ -24,5 +24,9 @@ func change_state_to(new_state: String) -> void:
 		return
 
 	_state._exit()
+	_state.is_active = false
+
 	_state = get_node(new_state)
+
+	_state.is_active = true
 	_state._enter()

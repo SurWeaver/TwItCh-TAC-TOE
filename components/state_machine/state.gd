@@ -5,6 +5,10 @@ extends Node
 @warning_ignore("unused_signal")
 signal queried_state_change(new_state: StringName)
 
+
+var is_active: bool = false
+
+
 @warning_ignore("unused_parameter")
 func _handle_input(event: InputEvent) -> void:
 	pass
