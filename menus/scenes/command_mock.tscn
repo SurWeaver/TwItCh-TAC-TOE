@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chenrummb824w"]
+
+[ext_resource type="Script" uid="uid://tefuty8ni2cd" path="res://menus/scenes/command_mock.gd" id="1_mm6cp"]
+
+[node name="CommandMock" type="HBoxContainer" unique_id=1880096676]
+offset_right = 197.0
+offset_bottom = 39.0
+script = ExtResource("1_mm6cp")
+
+[node name="PreviousPlayerButton" type="Button" parent="." unique_id=1989754455]
+layout_mode = 2
+text = "<"
+
+[node name="PlayerNicknameLabel" type="Label" parent="." unique_id=1712053751]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Zzz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextPlayerButton" type="Button" parent="." unique_id=508883581]
+layout_mode = 2
+text = ">"
+
+[node name="CommandLineEdit" type="LineEdit" parent="." unique_id=2128090247]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="PreviousPlayerButton" to="." method="_on_previous_player_button_pressed"]
+[connection signal="pressed" from="NextPlayerButton" to="." method="_on_next_player_button_pressed"]
+[connection signal="text_submitted" from="CommandLineEdit" to="." method="_on_command_line_edit_text_submitted"]
