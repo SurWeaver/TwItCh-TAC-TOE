@@ -7,9 +7,11 @@ signal duel_call(author: String, opponent: String)
 ## message: !color red | !color #23FFBB
 signal changed_color(author: String, color: Color)
 
-## message: !1
+## message: !AA
 signal symbol_placed(author: String, coordinate: Vector2i)
 
+## message: Всё остальное
+signal message_sent(author: String, message: String)
 
 
 const DEFAULT_UNACCEPTABLE_COLOR = Color(0, 0, 0, 0)
@@ -30,6 +32,8 @@ func _parse_message(author: String, message: String) -> void:
 	if message.begins_with("!"):
 		_parse_coordinate(author, message)
 		return
+
+	message_sent.emit(author, message)
 
 
 func _parse_duel(author: String, message: String) -> void:
