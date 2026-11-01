@@ -24,22 +24,16 @@ func initialize(duel_call_timer: DuelCallTimer) -> void:
 func _initialize_ui(duel_call_timer: DuelCallTimer) -> void:
 	var author_nickname = duel_call_timer.get_author()
 	_author_nickname_label.text = author_nickname
-	_author_nickname_label.modulate = _get_player_color(author_nickname)
+	_author_nickname_label.modulate = PlayerManager.get_player_color(author_nickname)
 
 	var opponent_nickname = duel_call_timer.get_opponent()
 	if opponent_nickname == Duel.NO_OPPONENT:
 		_opponent_nickname_label.text = NO_OPPONENT_NAMING
 	else:
 		_opponent_nickname_label.text = opponent_nickname
-	_opponent_nickname_label.modulate = _get_player_color(opponent_nickname)
+	_opponent_nickname_label.modulate = PlayerManager.get_player_color(opponent_nickname)
 
 	_clock_timer.connect_to_timer(duel_call_timer)
-
-func _get_player_color(player_nickname: String) -> Color:
-	var existing_player = PlayerManager.get_player(player_nickname)
-	if existing_player:
-		return existing_player.color
-	return Color.WHITE
 
 
 func animate_appear() -> void:

@@ -13,6 +13,12 @@ func _ready() -> void:
 func get_player(nickname: String) -> Player:
 	return _player_collection.get_player(nickname)
 
+func get_player_color(nickname: String, default_color: Color = Color.WHITE) -> Color:
+	var existing_player = get_player(nickname)
+	if existing_player:
+		return existing_player.color
+
+	return default_color
 
 ## Небезопасная функция, если игроки начнут спамить несуществующими никами.
 func get_or_create_player(nickname: String) -> Player:
