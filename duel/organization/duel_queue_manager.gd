@@ -16,7 +16,7 @@ var _duel_queue: Array[DuelPair] = []
 
 func _ready() -> void:
 	_duel_call_manager.opponents_matched.connect(_on_new_duel_call)
-	_duel_scene_provider.finished_duel.connect(_on_finished_duel)
+	_duel_scene_provider.finished_duel.connect(_on_freeing_duel_scene)
 
 
 func _on_new_duel_call(first_nickname: String, second_nickname: String) -> void:
@@ -33,7 +33,7 @@ func _on_new_duel_call(first_nickname: String, second_nickname: String) -> void:
 		added_pair.emit(pair)
 
 
-func _on_finished_duel() -> void:
+func _on_freeing_duel_scene() -> void:
 	if _duel_queue.is_empty():
 		return
 
