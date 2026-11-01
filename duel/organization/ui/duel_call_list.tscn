@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://tywj3kjhy5wr"]
+
+[ext_resource type="Theme" uid="uid://d2l6uoq1t4nrx" path="res://assets/ui_themes/default_theme.tres" id="1_7mvtm"]
+[ext_resource type="Script" uid="uid://cjd7t3r373hf1" path="res://duel/organization/ui/duel_call_list.gd" id="1_aqus4"]
+
+[node name="DuelCallList" type="VBoxContainer" unique_id=2006574806]
+offset_right = 329.0
+offset_bottom = 735.0
+theme = ExtResource("1_7mvtm")
+script = ExtResource("1_aqus4")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1068387554]
+layout_mode = 2
+text = "NO_DUEL_CALLS"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1455044380]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecordContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=448595462]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
