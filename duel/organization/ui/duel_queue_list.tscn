@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dvtrgrnu2jry7"]
+
+[ext_resource type="Script" uid="uid://bkqyylavbdnuk" path="res://duel/organization/ui/duel_queue_list.gd" id="1_pineu"]
+
+[node name="DuelQueueList" type="VBoxContainer" unique_id=23657803]
+offset_right = 376.0
+offset_bottom = 855.0
+script = ExtResource("1_pineu")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1995396706]
+layout_mode = 2
+text = "NO_QUEUED_DUELS"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2008153782]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecordContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=435835829]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

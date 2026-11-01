@@ -13,3 +13,5 @@ GET_READY_FOR_BATTLE,Приготовьтесь к сражению!,Get ready f
 BATTLE_START,Битва начинается!,The battle begins!
 DUEL_CALLS,Брошенные вызовы:,Duel calls:
 NO_DUEL_CALLS,Нет брошенных вызовов,No duel calls
+QUEUED_DUELS,Дуэли в ожидании:,Queued duels:
+NO_QUEUED_DUELS,Нет дуэлей в ожидании,No queued duels
