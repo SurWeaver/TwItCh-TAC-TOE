@@ -7,7 +7,18 @@ signal opponents_matched(first_player: String, second_player: String)
 signal call_created(timer: DuelCallTimer)
 
 
+var _occupied_players: PackedStringArray = []
+
+
+## Позволяет игрокам снова бросать вызовы, так как вызов блокируется на момент проведения боя
+func free_players(player_nicknames: Array[String]) -> void:
+	for nickname in player_nicknames:
+		_occupied_players.erase(nickname)
+
 func try_add_call(author: String, opponent: String = "") -> void:
+	if author in _occupied_players:
+		return
+
 	## Если у автора уже есть вызов, удаляем старый
 	var author_timer = _get_timer_by_author(author)
 	if author_timer:
@@ -52,10 +63,13 @@ func _process_opponent_call(author: String, opponent: String) -> void:
 
 func _answer_call(timer: DuelCallTimer, respondent_player: String) -> void:
 	timer.stop()
+	var call_author = timer.get_author()
+	_occupied_players.append(call_author)
+	_occupied_players.append(respondent_player)
 	## Ставим первым игроком того, кто уже ждал ответа на вызов
-	opponents_matched.emit(timer.get_author(), respondent_player)
+	opponents_matched.emit(call_author, respondent_player)
 	timer.queue_free()
-	_remove_unanswered_calls(timer.get_author(), respondent_player)
+	_remove_unanswered_calls(call_author, respondent_player)
 
 func _create_call(author: String, opponent: String) -> void:
 	var timer = DuelCallTimer.new(author, opponent)
