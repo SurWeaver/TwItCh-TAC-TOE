@@ -11,7 +11,7 @@ var _opponent: String
 
 func _init(author: String, opponent: String = Duel.NO_OPPONENT) -> void:
 	autostart = true
-	start(CALL_ANSWER_TIME)
+	wait_time = CALL_ANSWER_TIME
 	_author = author
 	_opponent = opponent
 	timeout.connect(queue_free)
